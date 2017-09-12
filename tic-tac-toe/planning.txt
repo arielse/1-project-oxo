@@ -1,0 +1,17 @@
+Planning For Game Mechanics
+
+- game switches between each user as they take their turns
+- game stops when one person wins by getting 3 symbols in a row
+- symbol switches between an "O" or "X" depending on whose turn it is
+- player clicks on a box to add a symbol to the board
+- player clicks on a button to finish their turn
+- only one symbol can be inserted into the grid at a time
+
+Code Planning
+
+- array of ["O", "X"]. Every time you click your turn, it switches the array index
+- need to keep track of which boxes have what symbol in them
+- maybe have to make a loop that checks each box to see what symbol it contains, then run a function to see if a player has won the game yet
+
+- maybe make an array of objects, each object corresponding to a box in the dom. Each has a value that starts at "" and gets a "X" or "O" put into it on player click
+- could also do 3 objects in an array, each object corresponds to a row of the board, and has three values in it as above.
