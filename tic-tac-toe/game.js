@@ -1,10 +1,13 @@
+// ---------------
+// Logic Functions
+// ---------------
+
 var players = ["o", "x"];
-var board = [["o", "x", ""],["x", "o", "x"],["o", "x", "o"]];
-var winner = false;
-var playerWin = ["ooo", "xxx"];
+var board = [["o", "x", ""],["x", "x", "x"],["oplayer", "o"]];
+var winner;
+var currentPlayer = players[0];
 
-
-var horizontalWinCheck = function() {
+var horizontalWinCheck = function(winner) {
   players.forEach(function(player) {
     board.forEach(function(tiles) {
       var playerCounter = 0;
@@ -13,53 +16,78 @@ var horizontalWinCheck = function() {
           playerCounter += 1;
         }
         if (playerCounter === 3) {
-          console.log(player + " is the winner!");
-          winner = true;
-        } else {
-          winner = false;
+          winner = player;
+          return winner;
+          console.log(winner + " is the winner!");
         }
       }
     });
   })
 };
 
-var verticalWinCheck = function() {
-  playerWin.forEach(function(player) {
-    if (board[0][0] + board[1][0] + board[2][0] === player) {
-      console.log(player + " is the winner!");
-      winner = true;
-    } else if (board[0][1] + board[1][1] + board[2][1] === player) {
-      console.log(player + " is the winner!");
-      winner = true;
-    } else if (board[0][2] + board[1][2] + board[2][2] === player) {
-      console.log(player + " is the winner!");
-      winner = true;
+var verticalWinCheck = function(winner) {
+  players.forEach(function(player) {
+    if (board[0][0] === player && board[1][0] === player && board[2][0] === player) {
+      winner = player;
+      return winner;
+      console.log(winner + " is the winner!");
+    } else if (board[0][1] === player && board[1][1] === player && board[2][1] === player) {
+      winner = player;
+      return winner;
+      console.log(winner + " is the winner!");
+    } else if (board[0][2] === player && board[1][2] === player && board[2][2] === player) {
+      winner = player;
+      return winner;
+      console.log(winner + " is the winner!");
     } else {
       console.log("no vertical winner");
-      winner = false;
     }
   });
 };
 
-var diagonalWinCheck = function(player) {
-  playerWin.forEach(function(player) {
-    if (board[0][0] + board[1][1] + board[2][2] === player) {
-      console.log(player + " is the winner!");
-      winner = true;
-    } else if (board[0][2] + board[1][1] + board[2][0] === player) {
-      console.log(player + " is the winner!");
-      winner = true;
+var diagonalWinCheck = function(winner) {
+  players.forEach(function(player) {
+    if (board[0][0] === player && board[1][1] === player && board[2][2] === player) {
+      winner = player;
+      return winner;
+      console.log(winner + " is the winner!");
+    } else if (board[0][2] === player && board[1][1] === player && board[2][0] === player) {
+      winner = player;
+      return winner;
+      console.log(winner + " is the winner!");
     } else {
       console.log("no diagonal winner");
-      winner = false;
     }
   });
 };
 
+// Checks if a tile has a value, if not, sets that value to the current player symbol
 var tileValueCheck = function() {
-  //if tile has a value, nothing should happen, or a message saying to choose another square
-  //if tile has no value, run set value function.
-}
+  if (tile !== "") {
+    console.log("Tile already full! Choose another tile.")
+  } else {
+    tiles[i] = currentPlayer;
+  }
+};
 
-var allWinChecks = function(player1, player2) {
-}
+// changes current player symbol
+var changePlayer = function() {
+  if (currentPlayer === players[0]) {
+    currentPlayer = players[1];
+  } else if (currentPlayer === players[1]) {
+    currentPlayer = players[0];
+  }
+  console.log("The current player is: " + currentPlayer);
+};
+
+var allWinChecks = function() {
+  horizontalWinCheck(winner);
+  verticalWinCheck(winner);
+  diagonalWinCheck(winner);
+};
+
+// ----------------------
+// Presentation Functions
+// ----------------------
+
+window.addEventListener('click', changePlayer);
