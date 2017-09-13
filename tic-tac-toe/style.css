@@ -1,0 +1,31 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  text-align: center;
+}
+section {
+  display: inline-block;
+  width: 20%;
+  vertical-align: top;
+}
+#board {
+  width: 59%;
+}
+#board div {
+  display: inline-block;
+  width: 30%;
+  height: 200px;
+  background-color: pink;
+  cursor: pointer;
+}
+button {
+  display: block;
+  margin: auto;
+  width: 200px;
+  padding: 20px 0;
+  font-size: 20px;
+  background-color: lightgreen;
+  border: none;
+  cursor: pointer;
+}
