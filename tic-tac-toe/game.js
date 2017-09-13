@@ -3,13 +3,13 @@
 // ---------------
 
 var players = ["o", "x"];
-var board = [["o", "x", ""],["x", "x", "x"],["oplayer", "o"]];
+var boardArr = [["", "", ""],["", "", ""],["", "", ""]];
 var winner;
 var currentPlayer = players[0];
 
-var horizontalWinCheck = function(winner) {
+var horizontalWinCheck = function() {
   players.forEach(function(player) {
-    board.forEach(function(tiles) {
+    boardArr.forEach(function(tiles) {
       var playerCounter = 0;
       for (var i = 0; i < tiles.length; i++) {
         if (tiles[i] === player) {
@@ -17,44 +17,44 @@ var horizontalWinCheck = function(winner) {
         }
         if (playerCounter === 3) {
           winner = player;
-          return winner;
-          console.log(winner + " is the winner!");
+          winnerMessage;
+          board.removeEventListener('click', ticTacToe);
         }
       }
     });
   })
 };
 
-var verticalWinCheck = function(winner) {
+var verticalWinCheck = function() {
   players.forEach(function(player) {
-    if (board[0][0] === player && board[1][0] === player && board[2][0] === player) {
+    if (boardArr[0][0] === player && boardArr[1][0] === player && boardArr[2][0] === player) {
       winner = player;
-      return winner;
-      console.log(winner + " is the winner!");
-    } else if (board[0][1] === player && board[1][1] === player && board[2][1] === player) {
+      winnerMessage;
+      board.removeEventListener('click', ticTacToe);
+    } else if (boardArr[0][1] === player && boardArr[1][1] === player && boardArr[2][1] === player) {
       winner = player;
-      return winner;
-      console.log(winner + " is the winner!");
-    } else if (board[0][2] === player && board[1][2] === player && board[2][2] === player) {
+      winnerMessage;
+      board.removeEventListener('click', ticTacToe);
+    } else if (boardArr[0][2] === player && boardArr[1][2] === player && boardArr[2][2] === player) {
       winner = player;
-      return winner;
-      console.log(winner + " is the winner!");
+      winnerMessage;
+      board.removeEventListener('click', ticTacToe);
     } else {
       console.log("no vertical winner");
     }
   });
 };
 
-var diagonalWinCheck = function(winner) {
+var diagonalWinCheck = function() {
   players.forEach(function(player) {
-    if (board[0][0] === player && board[1][1] === player && board[2][2] === player) {
+    if (boardArr[0][0] === player && boardArr[1][1] === player && boardArr[2][2] === player) {
       winner = player;
-      return winner;
       console.log(winner + " is the winner!");
-    } else if (board[0][2] === player && board[1][1] === player && board[2][0] === player) {
+      board.removeEventListener('click', ticTacToe);
+    } else if (boardArr[0][2] === player && boardArr[1][1] === player && boardArr[2][0] === player) {
       winner = player;
-      return winner;
-      console.log(winner + " is the winner!");
+      winnerMessage;
+      board.removeEventListener('click', ticTacToe);
     } else {
       console.log("no diagonal winner");
     }
@@ -63,10 +63,10 @@ var diagonalWinCheck = function(winner) {
 
 // Checks if a tile has a value, if not, sets that value to the current player symbol
 var tileValueCheck = function() {
-  if (tile !== "") {
+  if (event.target.className !== "") {
     console.log("Tile already full! Choose another tile.")
   } else {
-    tiles[i] = currentPlayer;
+    event.target.className = currentPlayer;
   }
 };
 
@@ -77,17 +77,46 @@ var changePlayer = function() {
   } else if (currentPlayer === players[1]) {
     currentPlayer = players[0];
   }
-  console.log("The current player is: " + currentPlayer);
 };
 
 var allWinChecks = function() {
-  horizontalWinCheck(winner);
-  verticalWinCheck(winner);
-  diagonalWinCheck(winner);
+  horizontalWinCheck();
+  verticalWinCheck();
+  diagonalWinCheck();
 };
 
 // ----------------------
 // Presentation Functions
 // ----------------------
 
-window.addEventListener('click', changePlayer);
+// window.addEventListener('click', changePlayer);
+
+var board = document.querySelector('#board');
+var whoWon = document.querySelector('.who-won');
+
+
+var setTileValue = function() {
+  var counter = 0;
+  boardArr.forEach(function(tiles) {
+    for (var i = 0; i < tiles.length; i++) {
+      tiles[i] = board.children[counter].className;
+      counter +=1;
+    }
+  });
+};
+
+var displayWinner = function() {
+  winnerMessage = winner + " is the winner!";
+  whoWon.textContent = winnerMessage;
+};
+
+var ticTacToe = function() {
+  tileValueCheck();
+  setTileValue();
+  allWinChecks();
+  changePlayer();
+};
+
+
+
+board.addEventListener('click', ticTacToe);
