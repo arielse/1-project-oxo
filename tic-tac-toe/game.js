@@ -105,6 +105,7 @@ resetBtn.addEventListener('click' ,function() {
   }
   boardArr = [["", "", ""],["", "", ""],["", "", ""]];
   whoWon.textContent = "";
+  board.addEventListener('click', ticTacToe);
 });
 
 var tieCheck = function() {
