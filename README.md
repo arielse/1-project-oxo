@@ -8,3 +8,6 @@ After this the array goes through a number of checks to see if any player has wo
 Once one of the players has won the game, by getting three tiles in a row vertically, horizontally or diagonally, the ability to click on tiles is removed.
 
 The option to reset the board is there at any time by clicking the reset button at the bottom of the page.
+
+Full project can be found at: 
+https://arielse.github.io/1-project-oxo/
