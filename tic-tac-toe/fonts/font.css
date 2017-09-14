@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'Kingthings Foundation';
+  src: url('Kingthings_Foundation.eot'); /* IE9 Compat Modes */
+  src: url('Kingthings_Foundation.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('Kingthings_Foundation.woff') format('woff'), /* Modern Browsers */
+       url('Kingthings_Foundation.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('Kingthings_Foundation.svg#66b1b6a132a91ed6e76eaaab4d508f63') format('svg'); /* Legacy iOS */
+       
+  font-style:   normal;
+  font-weight:  200;
+}
+

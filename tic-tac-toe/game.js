@@ -92,7 +92,7 @@ var setTileValue = function() {
 };
 
 var displayWinner = function() {
-  whoWon.textContent = currentPlayer + " is the winner!";
+    whoWon.textContent = currentPlayer + " is the winner!";
 };
 
 var gameOver = function() {
@@ -107,10 +107,17 @@ resetBtn.addEventListener('click' ,function() {
   whoWon.textContent = "";
 });
 
+var tieCheck = function() {
+  if (boardArr[0].indexOf("") === -1 && boardArr[1].indexOf("") === -1 && boardArr[2].indexOf("") === -1 && allWinChecks() === undefined) {
+    whoWon.textContent = "It's a tie!";
+  }
+};
+
 var ticTacToe = function() {
   tileValueCheck();
   setTileValue();
   allWinChecks();
+  tieCheck();
   changePlayer();
 };
 

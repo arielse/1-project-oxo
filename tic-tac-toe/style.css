@@ -1,19 +1,21 @@
 * {
   box-sizing: border-box;
+  
 }
 body {
   text-align: center;
   margin: 0;
   background-color: #ccbea3;
+  font-family: 'Kingthings Foundation', cursive;
 }
 section {
   display: inline-block;
-  vertical-align: middle;
+  vertical-align: top;
 }
 .board-wrapper {
 height: 100vh;
 width: 49%;
-background-image: url('images/paper-background.png');
+background-image: linear-gradient(to bottom, rgba(204, 190, 163, 0.4), rgba(204, 190, 163, 0.4)), url('images/paper-background.png');
 background-size: cover;
 background-repeat: no-repeat;
 display: inline-block;
@@ -32,17 +34,18 @@ vertical-align: top;
   background-size: cover;
   background-repeat: no-repeat;
   background-color: rgba(0, 0, 0, 0.5);
-  vertical-align: middle;
+  vertical-align: top;
+  border-radius: 3px;
 }
 
-#board .Defence {
+#board div.Defence {
   background-image: url('images/shield.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   vertical-align: middle;
 }
-#board .Attack {
+#board div.Attack {
   background-image: url('images/swords.png');
   background-size: contain;
   background-repeat: no-repeat;
@@ -52,25 +55,40 @@ vertical-align: top;
 .reset-btn {
   cursor: pointer;
   padding: 15px 20px;
-  font-size: 25px;
-  background-color: navy;
+  font-size: 20px;
+  background-color: #00004e;
+  border-radius: 5px;
   color: #fff;
   border: none;
 }
 
 .who-won {
-  font-size: 40px;
+  font-size: 45px;
+  color: #00004e;
+  margin-top: 20px;
 }
-
-#defence-player {
-  background: linear-gradient( to right, #fa9d00 50%, #00909e 50%);
-  padding-top: 100px;
+#attack-player, #defence-player {
+  padding-top: 20px;
   height: 100vh;
   width: 25.2%;
+}
+#defence-player {
+  background: linear-gradient( to right, #fa9d00 50%, #00909e 50%);
 }
 #attack-player {
   background: linear-gradient( to right, #f44336 50%, #cddc39 50%);
-  padding-top: 100px;
-  height: 100vh;
-  width: 25.2%;
+}
+#defence-player h2, #attack-player h2, h1 {
+  font-size: 45px;
+  letter-spacing: 2px;
+  font-weight: bold;
+  color: oldlace;
+}
+h1 {
+  padding-top: 10px;
+  color: #00004e;
+  font-size: 60px;
+  margin-bottom: 20px;
+  margin-top: 35px;
+  #d62d21
 }
