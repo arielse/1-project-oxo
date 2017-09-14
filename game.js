@@ -92,7 +92,7 @@ var setTileValue = function() {
 };
 
 var displayWinner = function() {
-    whoWon.textContent = currentPlayer + " is the winner!";
+    whoWon.textContent = currentPlayer + " Wins!";
 };
 
 var gameOver = function() {

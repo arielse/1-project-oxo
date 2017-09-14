@@ -22,8 +22,7 @@ display: inline-block;
 vertical-align: top;
 }
 #board {
-  width: 100%;
-
+width: 100%;
 }
 #board div {
   display: inline-block;
@@ -65,10 +64,12 @@ vertical-align: top;
 .who-won {
   font-size: 45px;
   color: #00004e;
-  margin-top: 20px;
-  background-color: linen;
-  width: 480px;
   background-image: url(images/winner-banner.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  margin: auto;
+  margin-top: 20px;
 }
 
 #attack-player, #defence-player {
@@ -89,10 +90,13 @@ vertical-align: top;
   color: oldlace;
 }
 h1 {
-  padding-top: 10px;
+  padding: 10px 0;
   color: #00004e;
   font-size: 60px;
   margin-bottom: 20px;
   margin-top: 35px;
-  #d62d21
+  background-image: url(images/winner-banner.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
 }
