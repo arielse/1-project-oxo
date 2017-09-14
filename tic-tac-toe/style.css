@@ -3,27 +3,74 @@
 }
 body {
   text-align: center;
+  margin: 0;
+  background-color: #ccbea3;
 }
 section {
   display: inline-block;
-  width: 25%;
-  vertical-align: top;
+  vertical-align: middle;
+}
+.board-wrapper {
+height: 100vh;
+width: 49%;
+background-image: url('images/paper-background.png');
+background-size: cover;
+background-repeat: no-repeat;
+display: inline-block;
+vertical-align: top;
 }
 #board {
-  width: 49%;
+  width: 100%;
+
 }
 #board div {
   display: inline-block;
   width: 28%;
   height: 160px;
-  background-color: pink;
   cursor: pointer;
-  vertical-align: top;
   margin-bottom: 5px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: rgba(0, 0, 0, 0.5);
+  vertical-align: middle;
 }
-#board .o {
-  background-color: lightgreen;
+
+#board .Defence {
+  background-image: url('images/shield.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  vertical-align: middle;
 }
-#board .x {
-  background-color: lightblue;
+#board .Attack {
+  background-image: url('images/swords.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  vertical-align: middle;
+}
+.reset-btn {
+  cursor: pointer;
+  padding: 15px 20px;
+  font-size: 25px;
+  background-color: navy;
+  color: #fff;
+  border: none;
+}
+
+.who-won {
+  font-size: 40px;
+}
+
+#defence-player {
+  background: linear-gradient( to right, #fa9d00 50%, #00909e 50%);
+  padding-top: 100px;
+  height: 100vh;
+  width: 25.2%;
+}
+#attack-player {
+  background: linear-gradient( to right, #f44336 50%, #cddc39 50%);
+  padding-top: 100px;
+  height: 100vh;
+  width: 25.2%;
 }

@@ -2,7 +2,7 @@
 // Logic Functions
 // ---------------
 
-var players = ["o", "x"];
+var players = ["Defence", "Attack"];
 var boardArr = [["", "", ""],["", "", ""],["", "", ""]];
 var winner;
 var currentPlayer = players[0];
@@ -16,7 +16,7 @@ var horizontalWinCheck = function() {
       }
       if (counter === 3) {
         displayWinner();
-        board.removeEventListener('click', ticTacToe);
+        gameOver();
       }
     }
   });
@@ -25,15 +25,13 @@ var horizontalWinCheck = function() {
 var verticalWinCheck = function() {
   if (boardArr[0][0] === currentPlayer && boardArr[1][0] === currentPlayer && boardArr[2][0] === currentPlayer) {
     displayWinner();
-    board.removeEventListener('click', ticTacToe);
+    gameOver();
   } else if (boardArr[0][1] === currentPlayer && boardArr[1][1] === currentPlayer && boardArr[2][1] === currentPlayer) {
     displayWinner();
-    board.removeEventListener('click', ticTacToe);
+    gameOver();
   } else if (boardArr[0][2] === currentPlayer && boardArr[1][2] === currentPlayer && boardArr[2][2] === currentPlayer) {
     displayWinner();
-    board.removeEventListener('click', ticTacToe);
-  } else {
-    console.log("no vertical winner");
+    gameOver();
   }
 };
 
@@ -41,12 +39,10 @@ var diagonalWinCheck = function() {
   players.forEach(function(player) {
     if (boardArr[0][0] === currentPlayer && boardArr[1][1] === currentPlayer && boardArr[2][2] === currentPlayer) {
       displayWinner();
-      board.removeEventListener('click', ticTacToe);
+      gameOver();
     } else if (boardArr[0][2] === currentPlayer && boardArr[1][1] === currentPlayer && boardArr[2][0] === currentPlayer) {
       displayWinner();
-      board.removeEventListener('click', ticTacToe);
-    } else {
-      console.log("no diagonal winner");
+      gameOver();
     }
   });
 };
@@ -54,7 +50,6 @@ var diagonalWinCheck = function() {
 // Checks if a tile has a value, if not, sets that value to the current player symbol
 var tileValueCheck = function() {
   if (event.target.className !== "") {
-    console.log("Tile already full! Choose another tile.")
   } else {
     event.target.className = currentPlayer;
   }
@@ -83,6 +78,7 @@ var allWinChecks = function() {
 
 var board = document.querySelector('#board');
 var whoWon = document.querySelector('.who-won');
+var resetBtn = document.querySelector('.reset-btn');
 
 
 var setTileValue = function() {
@@ -99,12 +95,23 @@ var displayWinner = function() {
   whoWon.textContent = currentPlayer + " is the winner!";
 };
 
+var gameOver = function() {
+  board.removeEventListener('click', ticTacToe);
+};
+
+resetBtn.addEventListener('click' ,function() {
+  for (var i = 0; i < board.children.length; i++) {
+    board.children[i].className = "";
+  }
+  boardArr = [["", "", ""],["", "", ""],["", "", ""]];
+  whoWon.textContent = "";
+});
+
 var ticTacToe = function() {
   tileValueCheck();
   setTileValue();
   allWinChecks();
   changePlayer();
 };
-
 
 board.addEventListener('click', ticTacToe);
