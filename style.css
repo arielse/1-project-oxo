@@ -59,6 +59,7 @@ width: 100%;
   border-radius: 5px;
   color: #fff;
   border: none;
+  outline: none;
 }
 
 .who-won {
@@ -70,6 +71,7 @@ width: 100%;
   background-position: center;
   margin: auto;
   margin-top: 20px;
+
 }
 
 #attack-player, #defence-player {
@@ -80,8 +82,14 @@ width: 100%;
 #defence-player {
   background: linear-gradient( to right, #fa9d00 50%, #00909e 50%);
 }
+#defence-player img {
+  max-height: 300px;
+}
 #attack-player {
   background: linear-gradient( to right, #f44336 50%, #cddc39 50%);
+}
+#attack-player img {
+  max-height: 280px;
 }
 #defence-player h2, #attack-player h2, h1 {
   font-size: 45px;
@@ -89,6 +97,7 @@ width: 100%;
   font-weight: bold;
   color: oldlace;
 }
+
 h1 {
   padding: 10px 0;
   color: #00004e;
@@ -99,4 +108,10 @@ h1 {
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
+}
+
+@media screen and (max-width: 1262px) {
+  #attack-player, #defence-player {
+    width: 25.1%;
+  }
 }

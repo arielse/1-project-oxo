@@ -4,8 +4,7 @@
 
 var players = ["Defence", "Attack"];
 var boardArr = [["", "", ""],["", "", ""],["", "", ""]];
-var winner;
-var currentPlayer = players[0];
+var currentPlayer = players[1];
 
 var horizontalWinCheck = function() {
   boardArr.forEach(function(tiles) {
