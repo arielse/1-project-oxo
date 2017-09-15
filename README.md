@@ -35,5 +35,4 @@ The main challenge of this project was connecting the logic functions I initiall
 
 The game is not responsive as I was focussing mostly on making it work at all. I would like to come back to this project and make it responsive, as at the moment it is optimised for screens above 1260px.
 
-Full project can be found at:
-https://arielse.github.io/1-project-oxo/
+Full project can be found [HERE](https://arielse.github.io/1-project-oxo/)
